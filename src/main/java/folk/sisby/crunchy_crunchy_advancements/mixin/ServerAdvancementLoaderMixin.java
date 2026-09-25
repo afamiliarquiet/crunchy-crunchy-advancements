@@ -16,7 +16,7 @@ import java.util.function.Predicate;
 
 @Mixin(ServerAdvancementLoader.class)
 public abstract class ServerAdvancementLoaderMixin {
-	@ModifyExpressionValue(method = "apply(Ljava/util/Map;Lnet/minecraft/resource/ResourceManager;Lnet/minecraft/util/profiler/Profiler;)V", at = @At(value = "INVOKE", target = "Lcom/google/common/collect/ImmutableMap$Builder;buildOrThrow()Lcom/google/common/collect/ImmutableMap;"))
+	@ModifyExpressionValue(method = "<init>", at = @At(value = "INVOKE", target = "Lcom/google/common/collect/ImmutableMap$Builder;buildOrThrow()Lcom/google/common/collect/ImmutableMap;"))
 	private ImmutableMap<Identifier, AdvancementEntry> filterMap(ImmutableMap<Identifier, AdvancementEntry> original) {
 		Map<Identifier, AdvancementEntry> map = new HashMap<>(original);
 		Predicate<AdvancementEntry> namespace_predicate = (entry) -> CrunchyAdvancements.CONFIG.filterNamespaces.contains(entry.id().getNamespace());

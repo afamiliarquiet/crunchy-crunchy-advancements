@@ -65,17 +65,17 @@ loom {
 	intermediaryUrl = 'https://repo.codemc.io/repository/relativitymc/org/relativitymc/intermediary/%1$s/intermediary-%1$s-v2.jar'
 }
 
-githubRelease {
-	token = System.getenv("GITHUB_TOKEN")
-	owner = project.user
-	repo = slug
-	tagName = "v${baseVersion}+${tagBranch}"
-	targetCommitish = tagBranch
-	releaseAssets = remapJar
-	releaseName = "v${baseVersion}"
-	allowUploadToExisting = (tagBranch != branch)
-	body = !file("CHANGELOG.md").exists() ? "" : rootProject.file("CHANGELOG.md").text
-}
+//githubRelease {
+//	token = System.getenv("GITHUB_TOKEN")
+//	owner = project.user
+//	repo = slug
+//	tagName = "v${baseVersion}+${tagBranch}"
+//	targetCommitish = tagBranch
+//	releaseAssets = remapJar
+//	releaseName = "v${baseVersion}"
+//	allowUploadToExisting = (tagBranch != branch)
+//	body = !file("CHANGELOG.md").exists() ? "" : rootProject.file("CHANGELOG.md").text
+//}
 
 modrinth {
 	token = System.getenv("MODRINTH_TOKEN")
